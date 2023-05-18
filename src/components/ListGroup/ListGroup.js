@@ -1,4 +1,5 @@
 import {useState} from "react";
+import styles from "./ListGroup.module.css";
 
 interface Props {
     cities: string[];
@@ -23,11 +24,12 @@ function ListGroup({cities, heading, onSelectItem} : Props) {
     //     </ul>
     // );
 
+    // use camelCase to avoid needing the bracket/list notation
     return (
         <>
             <h1 className="h1">{heading}</h1>
             {cities.length === 0 ? <p>No Cities Found</p> : null}
-            <ul className="list-group">
+            <ul className={"list-group" + styles["list-group-local"]}>
                 {cities.map((city, index) =>
                     <li className={selectedIndex === index ? "list-group-item active" : "list-group-item"}
                     onClick={() => {
