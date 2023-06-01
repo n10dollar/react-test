@@ -4,6 +4,7 @@ import {Fragment} from "react";
 import "../App.css";
 import Alert from "../components/Alert";
 import App from "../App";
+import Form from "../components/Form";
 
 
 let cities = [
@@ -47,5 +48,5 @@ function AppOld() {
 }
 
 
-export default AppOld;
+export default App;
 
