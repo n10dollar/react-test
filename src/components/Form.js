@@ -12,7 +12,8 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const Form = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm( { resolver: zodResolver(schema) });
+    // eslint-disable-next-line no-mixed-operators
+    const { register, handleSubmit, formState: { errors, isValid } } = useForm( { resolver: zodResolver(schema) });
     console.log(errors);
 
     function handleSubmitDef(data: FieldValues) {
@@ -28,10 +29,10 @@ const Form = () => {
             </div>
             <div className="mb-3 col-6">
                 <label htmlFor="age" className="form-label">Age</label>
-                <input id="age" { ...register("age") } type="number" className="form-control"/>
+                <input id="age" { ...register("age", { valueAsNumber: true }) } type="number" className="form-control"/>
                 { errors.age ? <p className="text-danger">{errors.age.message}</p> : null}
             </div>
-            <button className="btn btn-primary" type="submit">Submit</button>
+            <button disabled={!isValid} className="btn btn-primary" type="submit">Submit</button>
         </form>
     )
 }
