@@ -1,16 +1,11 @@
-import Message from "./components/Message";
-import ListGroup from "./components/ListGroup/ListGroup";
-import {Fragment} from "react";
-import "./App.css";
-import Alert from "./components/Alert";
-import App from "../App";
-import Form from "./components/Form";
+import Form from "./components/Form.js";
 
 function App() {
     return (
-      <div>
-          Test
-      </div>
+        <div>
+            Test
+            <Form/>
+        </div>
     );
 }
 
