@@ -12,7 +12,6 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const Form = () => {
-    // eslint-disable-next-line no-mixed-operators
     const { register, handleSubmit, formState: { errors, isValid } } = useForm( { resolver: zodResolver(schema) });
     console.log(errors);
 
